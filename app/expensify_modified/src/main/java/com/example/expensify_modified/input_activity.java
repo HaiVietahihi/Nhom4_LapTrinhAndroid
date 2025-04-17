@@ -1,4 +1,5 @@
 package com.example.expensify_modified;
+
 import android.app.DatePickerDialog;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -22,13 +23,8 @@ public class input_activity extends AppCompatActivity {
     private String transactionType = "expense";
     private DatabaseHelper dbHelper;
 
-    private final String[] expenseCategories = {
-            "Ăn uống", "Di chuyển", "Mua sắm", "Giải trí", "Học tập", "Sức khỏe", "Khác"
-    };
-
-    private final String[] incomeCategories = {
-            "Lương", "Thưởng", "Bán hàng", "Đầu tư", "Khác"
-    };
+    private String[] expenseCategories;
+    private String[] incomeCategories;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +42,10 @@ public class input_activity extends AppCompatActivity {
         spinnerCategory = findViewById(R.id.spinnerCategory);
 
         dbHelper = new DatabaseHelper(this);
+
+        // Lấy dữ liệu đa ngôn ngữ từ strings.xml
+        expenseCategories = getResources().getStringArray(R.array.expense_categories);
+        incomeCategories = getResources().getStringArray(R.array.income_categories);
 
         // Load danh mục mặc định là "chi tiêu"
         loadCategories(expenseCategories);
@@ -71,7 +71,7 @@ public class input_activity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selected = spinnerCategory.getSelectedItem().toString();
-                if (selected.equals("Khác")) {
+                if (selected.equals(getString(R.string.other))) {
                     etCustomCategory.setVisibility(View.VISIBLE);
                 } else {
                     etCustomCategory.setVisibility(View.GONE);
@@ -103,7 +103,7 @@ public class input_activity extends AppCompatActivity {
     private void loadCategories(String[] categories) {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, categories);
         spinnerCategory.setAdapter(adapter);
-        etCustomCategory.setVisibility(View.GONE); // Reset mỗi lần đổi loại
+        etCustomCategory.setVisibility(View.GONE);
         etCustomCategory.setText("");
     }
 
@@ -125,16 +125,16 @@ public class input_activity extends AppCompatActivity {
         String amountStr = etAmount.getText().toString().trim();
         String category = spinnerCategory.getSelectedItem().toString();
 
-        if (category.equals("Khác")) {
+        if (category.equals(getString(R.string.other))) {
             category = etCustomCategory.getText().toString().trim();
             if (category.isEmpty()) {
-                Toast.makeText(this, "Vui lòng nhập tên danh mục!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.enter_custom_category), Toast.LENGTH_SHORT).show();
                 return;
             }
         }
 
         if (amountStr.isEmpty() || date.isEmpty()) {
-            Toast.makeText(this, "Vui lòng nhập đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.enter_required_info), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -143,8 +143,7 @@ public class input_activity extends AppCompatActivity {
 
         dbHelper.addExpense(amount, typeMapped, category, note, date);
 
-        Toast.makeText(this, "Đã lưu " + (typeMapped.equals("IN") ? "thu nhập" : "chi tiêu"), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getString(R.string.saved_success), Toast.LENGTH_SHORT).show();
         finish();
     }
 }
-

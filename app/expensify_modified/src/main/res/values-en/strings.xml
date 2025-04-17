@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tab_expense">Expense</string>
+    <string name="tab_income">Income</string>
+    <string name="hint_date">Select date</string>
+    <string name="hint_note">Note</string>
+    <string name="hint_amount">Amount</string>
+    <string name="hint_custom_category">Enter custom category...</string>
+    <string name="button_save">Save</string>
+    <string-array name="expense_categories">
+        <item>Food</item>
+        <item>Transport</item>
+        <item>Shopping</item>
+        <item>Entertainment</item>
+        <item>Education</item>
+        <item>Health</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="income_categories">
+        <item>Salary</item>
+        <item>Bonus</item>
+        <item>Sales</item>
+        <item>Investment</item>
+        <item>Other</item>
+    </string-array>
+    <string name="other">Other</string>
+    <string name="enter_custom_category">Please enter a custom category!</string>
+    <string name="enter_required_info">Please fill in all required information!</string>
+    <string name="saved_success">Saved successfully!</string>
+</resources>

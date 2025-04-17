@@ -10,8 +10,6 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-
-
         <!-- Tabs -->
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,7 +22,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="48dp"
-                android:text="Chi tiêu"
+                android:text="@string/tab_expense"
                 android:background="@drawable/tab_selected"
                 android:textColor="@android:color/white" />
 
@@ -33,7 +31,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="48dp"
-                android:text="Thu nhập"
+                android:text="@string/tab_income"
                 android:background="@drawable/tab_unselected"
                 android:textColor="@android:color/darker_gray" />
         </LinearLayout>
@@ -43,7 +41,7 @@
             android:id="@+id/etDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Chọn ngày"
+            android:hint="@string/hint_date"
             android:focusable="false"
             android:clickable="true"
             android:layout_marginTop="16dp"
@@ -55,7 +53,7 @@
             android:id="@+id/etNote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Ghi chú"
+            android:hint="@string/hint_note"
             android:layout_marginTop="12dp"
             android:background="@drawable/rounded_edittext"
             android:padding="12dp" />
@@ -65,7 +63,7 @@
             android:id="@+id/etAmount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Số tiền"
+            android:hint="@string/hint_amount"
             android:inputType="numberDecimal"
             android:layout_marginTop="12dp"
             android:background="@drawable/rounded_edittext"
@@ -84,20 +82,18 @@
             android:id="@+id/etCustomCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nhập danh mục khác..."
+            android:hint="@string/hint_custom_category"
             android:visibility="gone"
             android:layout_marginTop="8dp"
             android:background="@drawable/rounded_edittext"
             android:padding="12dp" />
-
-
 
         <!-- Nút lưu -->
         <Button
             android:id="@+id/btnSubmit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Lưu"
+            android:text="@string/button_save"
             android:layout_marginTop="20dp"
             android:backgroundTint="#FF4081"
             android:textColor="@android:color/white" />
