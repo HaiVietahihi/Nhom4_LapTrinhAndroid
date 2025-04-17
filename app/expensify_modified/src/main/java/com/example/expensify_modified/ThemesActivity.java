@@ -7,8 +7,10 @@ import android.view.View;
 import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ThemesActivity extends AppCompatActivity {
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+public class ThemesActivity extends AppCompatActivity {
+    private FloatingActionButton fabAdd;
     private static final String PREFS_NAME = "AppThemePrefs";
     private static final String KEY_SELECTED_THEME = "selected_theme";
 
@@ -17,7 +19,7 @@ public class ThemesActivity extends AppCompatActivity {
         // Apply saved theme before super.onCreate
         applySavedTheme();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_themes);
 
         // Setup buttons to change theme
         ImageButton btnTheme1 = findViewById(R.id.btnTheme1);
@@ -63,5 +65,6 @@ public class ThemesActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ThemesActivity.class);
         finish();
         startActivity(intent);
+
     }
 }

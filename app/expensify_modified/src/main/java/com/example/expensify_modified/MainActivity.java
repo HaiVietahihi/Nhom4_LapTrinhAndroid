@@ -18,9 +18,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main); // Tệp layout chứa FAB
-
         fabAdd = findViewById(R.id.fabAdd);
-
         fabAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -28,7 +26,17 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, input_activity.class);
                 startActivity(intent);
             }
+
         });
+        Button btnOpenThemes = findViewById(R.id.btnOpenThemes);
+        btnOpenThemes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ThemesActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
 
 

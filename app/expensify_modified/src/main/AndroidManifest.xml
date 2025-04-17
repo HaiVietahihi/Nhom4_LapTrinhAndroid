@@ -9,9 +9,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Nhom4_LapTrinhAndroid">
 <!--        <activity android:name=".input_activity"></activity>-->
-<!--        <activity android:name=".PieChartActivity"></activity>-->
+        <activity android:name=".ThemesActivity"></activity>
         <activity
-            android:name=".ThemesActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,13 +20,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".input_activity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:name=".input_activity">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
