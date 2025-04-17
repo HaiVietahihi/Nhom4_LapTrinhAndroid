@@ -62,9 +62,10 @@ public class ThemesActivity extends AppCompatActivity {
         editor.apply();
 
         // Restart activity to apply theme
-        Intent intent = new Intent(this, ThemesActivity.class);
-        finish();
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+        finish();
 
     }
 }

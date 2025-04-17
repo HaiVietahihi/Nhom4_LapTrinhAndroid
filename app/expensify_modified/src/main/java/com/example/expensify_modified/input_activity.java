@@ -1,6 +1,7 @@
 package com.example.expensify_modified;
 
 import android.app.DatePickerDialog;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -28,6 +29,7 @@ public class input_activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        applySavedTheme();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input);
 
@@ -86,6 +88,28 @@ public class input_activity extends AppCompatActivity {
         btnSubmit.setOnClickListener(v -> saveTransaction());
     }
 
+    private void applySavedTheme() {
+        SharedPreferences prefs = getSharedPreferences("AppThemePrefs", MODE_PRIVATE);
+        String themeName = prefs.getString("selected_theme", "Theme.Nhom4_LapTrinhAndroid");
+
+        switch (themeName) {
+            case "DynamicTheme1":
+                setTheme(R.style.DynamicTheme1);
+                break;
+            case "DynamicTheme2":
+                setTheme(R.style.DynamicTheme2);
+                break;
+            case "DynamicTheme3":
+                setTheme(R.style.DynamicTheme3);
+                break;
+            case "DynamicTheme4":
+                setTheme(R.style.DynamicTheme4);
+                break;
+            default:
+                setTheme(R.style.Theme_Nhom4_LapTrinhAndroid);
+                break;
+        }
+    }
     private void updateTabUI() {
         if (transactionType.equals("expense")) {
             btnExpense.setBackground(getDrawable(R.drawable.tab_selected));
