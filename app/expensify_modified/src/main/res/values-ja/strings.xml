@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tab_expense">支出</string>
+    <string name="tab_income">収入</string>
+    <string name="hint_date">日付を選択</string>
+    <string name="hint_note">メモ</string>
+    <string name="hint_amount">金額</string>
+    <string name="hint_custom_category">他のカテゴリを入力...</string>
+    <string name="button_save">保存</string>
+    <string-array name="expense_categories">
+        <item>食費</item>
+        <item>交通</item>
+        <item>買い物</item>
+        <item>娯楽</item>
+        <item>教育</item>
+        <item>健康</item>
+        <item>その他</item>
+    </string-array>
+
+    <string-array name="income_categories">
+        <item>給料</item>
+        <item>ボーナス</item>
+        <item>販売</item>
+        <item>投資</item>
+        <item>その他</item>
+    </string-array>
+    <string name="other">その他</string>
+    <string name="enter_custom_category">カスタムカテゴリを入力してください！</string>
+    <string name="enter_required_info">すべての情報を入力してください！</string>
+    <string name="saved_success">保存しました！</string>
+</resources>

@@ -1,3 +1,31 @@
 <resources>
-    <string name="app_name">expensify_modified</string>
+    <string name="app_name" translatable="false">expensify_modified</string>
+    <string name="tab_expense">Chi tiêu</string>
+    <string name="tab_income">Thu nhập</string>
+    <string name="hint_date">Chọn ngày</string>
+    <string name="hint_note">Ghi chú</string>
+    <string name="hint_amount">Số tiền</string>
+    <string name="hint_custom_category">Nhập danh mục khác...</string>
+    <string name="button_save">Lưu</string>
+    <string-array name="expense_categories">
+        <item>Ăn uống</item>
+        <item>Di chuyển</item>
+        <item>Mua sắm</item>
+        <item>Giải trí</item>
+        <item>Học tập</item>
+        <item>Sức khỏe</item>
+        <item>Khác</item>
+    </string-array>
+
+    <string-array name="income_categories">
+        <item>Lương</item>
+        <item>Thưởng</item>
+        <item>Bán hàng</item>
+        <item>Đầu tư</item>
+        <item>Khác</item>
+    </string-array>
+    <string name="other">Khác</string>
+    <string name="enter_custom_category">Vui lòng nhập tên danh mục!</string>
+    <string name="enter_required_info">Vui lòng nhập đầy đủ thông tin!</string>
+    <string name="saved_success">Đã lưu thành công!</string>
 </resources>
