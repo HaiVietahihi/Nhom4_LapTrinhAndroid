@@ -8,10 +8,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Nhom4_LapTrinhAndroid">
-        <activity android:name=".input_activity"></activity>
-        <activity android:name=".PieChartActivity"></activity>
+<!--        <activity android:name=".input_activity"></activity>-->
+<!--        <activity android:name=".PieChartActivity"></activity>-->
         <activity
-            android:name=".MainActivity"
+            android:name=".ThemesActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".input_activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
