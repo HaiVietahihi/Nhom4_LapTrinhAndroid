@@ -112,11 +112,10 @@
         android:id="@+id/btnOpenThemes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Chọn giao diện"
+        android:text="@string/btn_open_themes"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_margin="16dp"/>
-
 </RelativeLayout>
 
 

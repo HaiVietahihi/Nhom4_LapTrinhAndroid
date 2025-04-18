@@ -7,6 +7,7 @@
     <string name="hint_amount">Số tiền</string>
     <string name="hint_custom_category">Nhập danh mục khác...</string>
     <string name="button_save">Lưu</string>
+    <string name="btn_open_themes">Chọn giao diện</string>
     <string-array name="expense_categories">
         <item>Ăn uống</item>
         <item>Di chuyển</item>

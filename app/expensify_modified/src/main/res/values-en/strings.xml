@@ -7,6 +7,7 @@
     <string name="hint_amount">Amount</string>
     <string name="hint_custom_category">Enter custom category...</string>
     <string name="button_save">Save</string>
+    <string name="btn_open_themes">Choose Theme</string>
     <string-array name="expense_categories">
         <item>Food</item>
         <item>Transport</item>

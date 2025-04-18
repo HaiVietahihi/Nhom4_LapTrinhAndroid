@@ -7,6 +7,7 @@
     <string name="hint_amount">金額</string>
     <string name="hint_custom_category">他のカテゴリを入力...</string>
     <string name="button_save">保存</string>
+    <string name="btn_open_themes">テーマを選択</string>
     <string-array name="expense_categories">
         <item>食費</item>
         <item>交通</item>
