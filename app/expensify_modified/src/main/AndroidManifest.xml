@@ -10,6 +10,8 @@
         android:theme="@style/Theme.Nhom4_LapTrinhAndroid">
 <!--        <activity android:name=".input_activity"></activity>-->
         <activity android:name=".ThemesActivity"></activity>
+        <activity android:name=".Chart_Activity"></activity>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">

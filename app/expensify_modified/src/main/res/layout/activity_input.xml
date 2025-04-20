@@ -1,101 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+    <!-- Nội dung cuộn -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Tabs -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="16dp">
+            android:orientation="vertical"
+            android:padding="16dp">
 
+            <!-- Tabs -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp">
+
+                <Button
+                    android:id="@+id/btnExpense"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="48dp"
+                    android:text="@string/tab_expense"
+                    android:background="@drawable/tab_selected"
+                    android:textColor="@android:color/white" />
+
+                <Button
+                    android:id="@+id/btnIncome"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="48dp"
+                    android:text="@string/tab_income"
+                    android:background="@drawable/tab_unselected"
+                    android:textColor="@android:color/darker_gray" />
+            </LinearLayout>
+
+            <!-- Ngày -->
+            <EditText
+                android:id="@+id/etDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_date"
+                android:focusable="false"
+                android:clickable="true"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/rounded_edittext"
+                android:padding="12dp" />
+
+            <!-- Ghi chú -->
+            <EditText
+                android:id="@+id/etNote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_note"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/rounded_edittext"
+                android:padding="12dp" />
+
+            <!-- Số tiền -->
+            <EditText
+                android:id="@+id/etAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_amount"
+                android:inputType="numberDecimal"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/rounded_edittext"
+                android:padding="12dp" />
+
+            <!-- Spinner danh mục -->
+            <Spinner
+                android:id="@+id/spinnerCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:spinnerMode="dropdown" />
+
+            <!-- EditText nhập danh mục khác -->
+            <EditText
+                android:id="@+id/etCustomCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_custom_category"
+                android:visibility="gone"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/rounded_edittext"
+                android:padding="12dp" />
+
+            <!-- Nút lưu -->
             <Button
-                android:id="@+id/btnExpense"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="48dp"
-                android:text="@string/tab_expense"
-                android:background="@drawable/tab_selected"
+                android:id="@+id/btnSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_save"
+                android:layout_marginTop="20dp"
                 android:textColor="@android:color/white" />
-
-            <Button
-                android:id="@+id/btnIncome"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="48dp"
-                android:text="@string/tab_income"
-                android:background="@drawable/tab_unselected"
-                android:textColor="@android:color/darker_gray" />
         </LinearLayout>
+    </ScrollView>
 
-        <!-- Ngày -->
-        <EditText
-            android:id="@+id/etDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_date"
-            android:focusable="false"
-            android:clickable="true"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/rounded_edittext"
-            android:padding="12dp" />
+    <!-- Navigation bar cố định dưới cùng -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:menu="@menu/bottom_nav_menu"
+        app:itemIconTint="@color/selector_bottom_nav"
+        app:itemTextColor="@color/selector_bottom_nav"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Ghi chú -->
-        <EditText
-            android:id="@+id/etNote"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_note"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/rounded_edittext"
-            android:padding="12dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-        <!-- Số tiền -->
-        <EditText
-            android:id="@+id/etAmount"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_amount"
-            android:inputType="numberDecimal"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/rounded_edittext"
-            android:padding="12dp" />
-
-        <!-- Spinner danh mục -->
-        <Spinner
-            android:id="@+id/spinnerCategory"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:spinnerMode="dropdown" />
-
-        <!-- EditText nhập danh mục khác -->
-        <EditText
-            android:id="@+id/etCustomCategory"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_custom_category"
-            android:visibility="gone"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/rounded_edittext"
-            android:padding="12dp" />
-
-        <!-- Nút lưu -->
-        <Button
-            android:id="@+id/btnSubmit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/button_save"
-            android:layout_marginTop="20dp"
-
-            android:textColor="@android:color/white" />
-    </LinearLayout>
-</ScrollView>

@@ -2,12 +2,29 @@
     <string name="app_name" translatable="false">expensify_modified</string>
     <string name="tab_expense">Chi tiêu</string>
     <string name="tab_income">Thu nhập</string>
+    <string name="balance">Thu chi</string>
     <string name="hint_date">Chọn ngày</string>
     <string name="hint_note">Ghi chú</string>
+    <string name="category">Danh mục</string>
+    <string name="cancel">Hủy</string>
     <string name="hint_amount">Số tiền</string>
     <string name="hint_custom_category">Nhập danh mục khác...</string>
     <string name="button_save">Lưu</string>
     <string name="btn_open_themes">Chọn giao diện</string>
+    <string name="chart_tab_expense">Chi tiêu</string>
+    <string name="chart_tab_income">Thu nhập</string>
+    <string name="chart_tab_balance">Thu chi</string>
+    <string name="chart_button_ok">OK</string>
+    <string name="chart_amount_default">+0đ</string>
+    <string name="chart_expense_default">Chi tiêu\n-0đ</string>
+    <string name="chart_income_default">Thu nhập\n+0đ</string>
+    <string name="chart_balance_default">Thu chi\n+0đ</string>
+    <string name="chart_prev">Trước</string>
+    <string name="chart_next">Sau</string>
+    <string name="input">Nhập vào</string>
+    <string name="calender">Lịch</string>
+    <string name="report">Báo cáo</string>
+    <string name="other_nav">Khác</string>
     <string-array name="expense_categories">
         <item>Ăn uống</item>
         <item>Di chuyển</item>
@@ -16,6 +33,13 @@
         <item>Học tập</item>
         <item>Sức khỏe</item>
         <item>Khác</item>
+    </string-array>
+
+
+    <string-array name="view_modes">
+            <item>Ngày</item>
+            <item>Tháng</item>
+            <item>Năm</item>
     </string-array>
 
     <string-array name="income_categories">
@@ -29,4 +53,20 @@
     <string name="enter_custom_category">Vui lòng nhập tên danh mục!</string>
     <string name="enter_required_info">Vui lòng nhập đầy đủ thông tin!</string>
     <string name="saved_success">Đã lưu thành công!</string>
+
+    <string-array name="months_array">
+        <item>Th1</item>
+        <item>Th2</item>
+        <item>Th3</item>
+        <item>Th4</item>
+        <item>Th5</item>
+        <item>Th6</item>
+        <item>Th7</item>
+        <item>Th8</item>
+        <item>Th9</item>
+        <item>Th10</item>
+        <item>Th11</item>
+        <item>Th12</item>
+    </string-array>
+
 </resources>

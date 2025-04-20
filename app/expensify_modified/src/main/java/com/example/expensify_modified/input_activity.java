@@ -1,6 +1,7 @@
 package com.example.expensify_modified;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -15,6 +16,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.Calendar;
 
 public class input_activity extends AppCompatActivity {
@@ -24,6 +27,7 @@ public class input_activity extends AppCompatActivity {
     private String transactionType = "expense";
     private DatabaseHelper dbHelper;
 
+    private BottomNavigationView bottomNavigationView;
     private String[] expenseCategories;
     private String[] incomeCategories;
 
@@ -42,6 +46,7 @@ public class input_activity extends AppCompatActivity {
         etAmount = findViewById(R.id.etAmount);
         etCustomCategory = findViewById(R.id.etCustomCategory);
         spinnerCategory = findViewById(R.id.spinnerCategory);
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
         dbHelper = new DatabaseHelper(this);
 
@@ -84,8 +89,34 @@ public class input_activity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {}
         });
 
+
         // Gửi dữ liệu
         btnSubmit.setOnClickListener(v -> saveTransaction());
+        setupBottomNavigation();
+    }
+
+    private void setupBottomNavigation() {
+        bottomNavigationView.setSelectedItemId(R.id.nav_input);
+
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+            if (id == R.id.nav_input) {
+                return true;
+            } else if (id == R.id.nav_calendar) {
+                startActivity(new Intent(getApplicationContext(), CalendarActivity.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (id == R.id.nav_report) {
+                startActivity(new Intent(getApplicationContext(), Chart_Activity.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (id == R.id.nav_more) {
+                startActivity(new Intent(getApplicationContext(), MoreActivity.class));
+                overridePendingTransition(0, 0);
+                return true;
+            }
+            return false;
+        });
     }
 
     private void applySavedTheme() {
