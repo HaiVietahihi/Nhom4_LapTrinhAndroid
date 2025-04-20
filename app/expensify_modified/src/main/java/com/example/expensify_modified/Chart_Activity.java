@@ -2,6 +2,8 @@ package com.example.expensify_modified;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.TypedValue;
@@ -15,6 +17,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -55,10 +58,12 @@ public class Chart_Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        applySavedTheme();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart);
 
         dbHelper = new DatabaseHelper(this);
+
 
         pieChart = findViewById(R.id.pieChart);
         combinedChart = findViewById(R.id.combinedChart);
@@ -72,9 +77,7 @@ public class Chart_Activity extends AppCompatActivity {
         btnPrev = findViewById(R.id.btnPrev);
         btnNext = findViewById(R.id.btnNext);
         btnOK = findViewById(R.id.btnOK);
-        TypedValue typedValue = new TypedValue();
-        getTheme().resolveAttribute(R.color.colorPrimary, typedValue, true);
-        int colorPrimary = typedValue.data;
+
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -95,6 +98,36 @@ public class Chart_Activity extends AppCompatActivity {
         setupButtons();
         updateTabUI();
         updateDateDisplay();
+    }
+    private int getThemeColor(int attr) {
+        TypedValue typedValue = new TypedValue();
+        Resources.Theme theme = getTheme();
+        theme.resolveAttribute(attr, typedValue, true);
+        return typedValue.data;
+    }
+
+
+    private void applySavedTheme() {
+        SharedPreferences prefs = getSharedPreferences("AppThemePrefs", MODE_PRIVATE);
+        String themeName = prefs.getString("selected_theme", "Theme.Nhom4_LapTrinhAndroid");
+
+        switch (themeName) {
+            case "DynamicTheme1":
+                setTheme(R.style.DynamicTheme1);
+                break;
+            case "DynamicTheme2":
+                setTheme(R.style.DynamicTheme2);
+                break;
+            case "DynamicTheme3":
+                setTheme(R.style.DynamicTheme3);
+                break;
+            case "DynamicTheme4":
+                setTheme(R.style.DynamicTheme4);
+                break;
+            default:
+                setTheme(R.style.Theme_Nhom4_LapTrinhAndroid);
+                break;
+        }
     }
 
     private void setupBottomNavigation() {
@@ -214,14 +247,13 @@ public class Chart_Activity extends AppCompatActivity {
     private void updateTabUI() {
         TextView tabExpense = findViewById(R.id.tabExpense);
         TextView tabIncome = findViewById(R.id.tabIncome);
-        TypedValue typedValue = new TypedValue();
-        getTheme().resolveAttribute(R.color.colorPrimary, typedValue, true);
-        int colorPrimary = typedValue.data;
-        tabExpense.setBackgroundColor(colorPrimary);
+        int tabSelectedColor = getThemeColor(R.attr.tabSelectedColor);
+        int tabUnselectedColor = getThemeColor(R.attr.tabUnselectedColor);
+
 
         if (isExpenseTab) {
-            tabExpense.setBackgroundColor(getResources().getColor(android.R.color.holo_orange_light));
-            tabIncome.setBackgroundColor(getResources().getColor(android.R.color.darker_gray));
+            tabExpense.setBackgroundColor(tabSelectedColor);
+            tabIncome.setBackgroundColor(tabUnselectedColor);
 
             pieChart.setVisibility(View.VISIBLE);
             combinedChart.setVisibility(View.GONE);
@@ -231,8 +263,8 @@ public class Chart_Activity extends AppCompatActivity {
             tvBalance.setVisibility(View.VISIBLE);
             tvIncome.setVisibility(View.VISIBLE);
         } else {
-            tabExpense.setBackgroundColor(getResources().getColor(android.R.color.darker_gray));
-            tabIncome.setBackgroundColor(getResources().getColor(android.R.color.holo_orange_light));
+            tabExpense.setBackgroundColor(tabUnselectedColor);
+            tabIncome.setBackgroundColor(tabSelectedColor);
 
             pieChart.setVisibility(View.GONE);
             combinedChart.setVisibility(View.VISIBLE);
